@@ -1,9 +1,11 @@
+import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger'
 import { AxiosError } from 'axios'
-import { Controller, Get, Param } from '@nestjs/common'
+import { Controller, Get, HttpStatus, Param } from '@nestjs/common'
 import { MessagePattern } from '@nestjs/microservices'
 import { Observable, catchError, forkJoin, map, mergeMap, of } from 'rxjs'
 import { SwapiFilmsService } from './swapi-films.service'
 
+@ApiTags('films')
 @Controller('films')
 export class SwapiFilmsController {
   constructor(private readonly swapiFilmsService: SwapiFilmsService) {}
@@ -32,6 +34,12 @@ export class SwapiFilmsController {
     )
   }
 
+  @ApiOperation({ summary: 'Get film.' })
+  @ApiResponse({
+    description: 'Return film.',
+    status: HttpStatus.OK,
+  })
+  @Get(':id')
   @Get(':id')
   fetchFilm(
     @Param('id') id: number,

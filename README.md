@@ -54,6 +54,7 @@ NODE_ENV=development
 PORT=3004
 REDIS_HOST=127.0.0.1
 REDIS_PORT=6379
+SWAGGER_API_BEARER_TOKEN=.... # A meaningful `uuid` of your choice. For example `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9`.
 ```
 
 At this point the microservices should  be running and ready to handle requests. You should see output logs of the following nature
