@@ -1,0 +1,56 @@
+{
+	"info": {
+		"_postman_id": "77c09765-ec4b-4126-ac38-03c57e0aa294",
+		"name": "SWAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13857411"
+	},
+	"item": [
+		{
+			"name": "http://127.0.0.1:3004/people/1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3004/people/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3004",
+					"path": [
+						"people",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:3004/films/1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3004/films/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3004",
+					"path": [
+						"films",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
