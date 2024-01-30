@@ -2,18 +2,19 @@ import { ClientsModule, Transport } from '@nestjs/microservices'
 import { ConfigModule, ConfigService } from '@nestjs/config'
 import { HttpModule } from '@nestjs/axios'
 import { Module } from '@nestjs/common'
-import { STOCK_ANALYTICS_SERVICE } from '../common/constants'
-import { StockAnalyticsController } from './stock-analytics.controller'
-import { StockAnalyticsService } from './stock-analytics.service'
+import { SWAPI_PEOPLE_SERVICE } from '../common/constants'
+import { SwapiPeopleController } from './swapi-people.controller'
+import { SwapiPeopleService } from './swapi-people.service'
+
 @Module({
-  controllers: [StockAnalyticsController],
-  exports: [StockAnalyticsService],
+  controllers: [SwapiPeopleController],
+  exports: [SwapiPeopleService],
   imports: [
     ClientsModule.registerAsync([
       {
         imports: [ConfigModule],
         inject: [ConfigService],
-        name: STOCK_ANALYTICS_SERVICE,
+        name: SWAPI_PEOPLE_SERVICE,
         useFactory: async (configService: ConfigService) => ({
           options: {
             host: configService.get<string>('REDIS_HOST'),
@@ -25,6 +26,6 @@ import { StockAnalyticsService } from './stock-analytics.service'
     ]),
     HttpModule,
   ],
-  providers: [StockAnalyticsService],
+  providers: [SwapiPeopleService],
 })
-export class StockAnalyticsModule {}
+export class SwapiPeopleModule {}
